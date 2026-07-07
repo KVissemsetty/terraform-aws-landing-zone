@@ -90,5 +90,21 @@ terraform destroy
 
 ## Screenshots
 
-_(Add screenshots of `terraform apply` output and the resulting VPC in the
-AWS console here.)_
+![Bastion SSH](screenshots/bastion-ssh.png)
+*Connecting to the bastion host — SSH restricted to my IP only.*
+
+![Private app server SSH](screenshots/appserver-ssh.png)
+*Hopping from the bastion to the private app server using SSH agent
+forwarding — no private key ever copied onto the bastion.*
+
+![Terraform output](screenshots/terraform-output.png)
+*Confirmed resource outputs after `terraform apply`.*
+
+![VPC resource map](screenshots/vpc-resource-map.png)
+*Visual layout of the VPC: public/private subnets, NAT gateway, and
+internet gateway.*
+
+**Verified end-to-end:** bastion is reachable only from my IP; the app
+server is reachable only through the bastion (not directly from the
+internet); SSH agent forwarding used instead of copying keys onto the
+bastion.
